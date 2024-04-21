@@ -30,7 +30,10 @@ export function activate(context: vscode.ExtensionContext) {
 	
 		const text = activeEditor.document.lineAt(activeEditor.selection.active.line).text;
 		const wordCount = text.split(/\s+/).filter(word => word.length > 0).length;
-		const hasContent = text.length > 0;
+		//const hasContent = text.length > 0;
+
+        
+
 		const spacePrefix = '\u00A0';//hasContent ? ' ' : '\u00A0'; // idk why it trims white space!
 		const words = wordCount === 1 ? ' word' : ' words';
 	
