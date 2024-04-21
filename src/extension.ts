@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
     let activeEditor = vscode.window.activeTextEditor;
-    let timeout: NodeJS.Timeout | undefined = undefined;
+    //let timeout: NodeJS.Timeout | undefined = undefined;
 
 	let disposable = vscode.commands.registerCommand('myExtension.toggleWordCounter', () => {
 		const config = vscode.workspace.getConfiguration();
@@ -28,18 +28,21 @@ export function activate(context: vscode.ExtensionContext) {
 			return;
 		}
 	
+        // measuring stuffs
 		const text = activeEditor.document.lineAt(activeEditor.selection.active.line).text;
-		const wordCount = text.split(/\s+/).filter(word => word.length > 0).length;
+        const words = text.split(/\P{L}+/gu).filter(word => /\p{L}/u.test(word));
+        const filteredWords = words.filter(word => word.match(/^\p{L}+$/gu));
+        //const wordCount = text.split(/\s+/).filter(word => word.length > 0).length;
 		//const hasContent = text.length > 0;
 
-        
-
-		const spacePrefix = '\u00A0';//hasContent ? ' ' : '\u00A0'; // idk why it trims white space!
-		const words = wordCount === 1 ? ' word' : ' words';
+        // display stuffs
+        const wordCount = filteredWords.length;
+		const spacePrefix = '\u00A0'; //hasContent ? ' ' : '\u00A0'; // idk why it trims white space!
+		const wordsText = wordCount === 1 ? ' word' : ' words';
 	
 		const decoration = {
 			range: new vscode.Range(activeEditor.selection.active.line, text.length, activeEditor.selection.active.line, text.length + 1),
-			renderOptions: { after: { contentText: `${spacePrefix}${wordCount}${words}` } }
+			renderOptions: { after: { contentText: `${spacePrefix}${wordCount}${wordsText}` } }
 		};
 	
 		activeEditor.setDecorations(ghostDecorationType, [decoration]);
