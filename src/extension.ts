@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
     let activeEditor = vscode.window.activeTextEditor;
-    let timeout: NodeJS.Timeout | undefined = undefined;  // Adjust the type for Node.js or use `any` or `number` for browser environments
+    let timeout: NodeJS.Timeout | undefined = undefined;
 
 	let disposable = vscode.commands.registerCommand('myExtension.toggleWordCounter', () => {
 		const config = vscode.workspace.getConfiguration();
@@ -57,7 +57,7 @@ export function activate(context: vscode.ExtensionContext) {
         }
 
         if (isEnabled) {
-            updateDecorations(); // Your existing function to update decorations
+            updateDecorations();
         }
     }
 
