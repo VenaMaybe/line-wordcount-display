@@ -19,11 +19,11 @@
     "commands":[
       {
         "command": "myExtension.toggleWordCounter",
-        "title": "Toggle Word Counter"
+        "title": "Toggle Word Counter: Toggle if counter is displayed or not"
       },
       {
         "command": "myExtension.toggleDisplayAtTop",
-        "title": "Toggle Word Counter: Display at selection top line"
+        "title": "Toggle Word Counter: Display count top vs bottom of selection"
       }
     ],
     "configuration": {
