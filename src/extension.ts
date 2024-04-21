@@ -24,7 +24,7 @@ export function activate(context: vscode.ExtensionContext) {
     });
 
 	context.subscriptions.push(toggleWordCounterDisposable);
-    context.subscriptions.push(toggleDisplayAtTopDisposable)
+    context.subscriptions.push(toggleDisplayAtTopDisposable);
 
     const ghostDecorationType = vscode.window.createTextEditorDecorationType({
         after: {
