@@ -2,7 +2,7 @@
   "name": "line-wordcount-display",
   "displayName": "Line Wordcount Display",
   "description": "Shows the amount of words contained in each line in a small preview at the end",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "Vena's Lovely Extensions",
   "engines": {
     "vscode": "^1.88.0"
