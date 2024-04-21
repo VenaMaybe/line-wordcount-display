@@ -20,6 +20,10 @@
       {
         "command": "myExtension.toggleWordCounter",
         "title": "Toggle Word Counter"
+      },
+      {
+        "command": "myExtension.toggleDisplayAtTop",
+        "title": "Toggle Word Counter: Display at selection top line"
       }
     ],
     "configuration": {
@@ -29,6 +33,11 @@
           "type": "boolean",
           "default": true,
           "description": "Word Counter Enabled?"
+        },
+        "myExtension.displayCountAtSelectionTop": {
+          "type": "boolean",
+          "default": false,
+          "description": "Display the count at the top of the current selection"
         }
       }
     }
